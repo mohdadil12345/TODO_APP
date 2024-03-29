@@ -1,1 +1,27 @@
-<p>todo works!</p>
+
+
+
+
+<div class="taskadd">
+
+
+    <form (ngSubmit)="handle_form(form_data)" #form_data = "ngForm">
+      <input [(ngModel)] = "title" name="title" type="text" placeholder="title">
+      <input [(ngModel)] = "description" name="description" type="text" placeholder="description">
+
+     <select [(ngModel)] = "status"  name="status">
+        <option value="">Select Status</option>
+        <option value="Completed">Completed</option>
+        <option value="Pending">Pending</option>
+     </select>
+
+
+  
+      <button type="submit">ADD</button>
+    </form>
+  
+  
+  
+  </div>
+  
+  
