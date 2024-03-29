@@ -20,6 +20,7 @@ export class TodoComponent {
 
       
   constructor() {
+
    }
 
   ngOnInit(): void {
@@ -48,7 +49,7 @@ export class TodoComponent {
 
           localStorage.setItem("todo", JSON.stringify(lsdata))
         }else{
-          localStorage.setItem("todo", JSON.stringify([obj]))
+          localStorage.setItem("todo", JSON.stringify(obj))
 
         }
   
@@ -60,7 +61,6 @@ export class TodoComponent {
 
 
 
-
   // delete 
 
 handle_delete(id : any) {
@@ -68,7 +68,7 @@ handle_delete(id : any) {
   this.users = this.users.filter((ele: any) => ele.id !== id);
   localStorage.setItem("todo", JSON.stringify(this.users)); 
 
-
+ alert("item deleted successfully")
 
 }
 
@@ -92,7 +92,7 @@ handle_status(id: number) {
 //  update 
 
 edit_popup(ele : TodoTypes) {
-  // console.log("ele", ele)
+  console.log("ele", ele)
   this.selected_todo = ele
   this.show_popup = true;
 }
@@ -101,7 +101,7 @@ edit_popup(ele : TodoTypes) {
 // Update_Todo
 
 Update_Todo (item : TodoTypes) {
-     console.log("item", item)
+//      console.log("item", item)
 
  const indexx = this.users.findIndex(ele => ele.id == item.id)
 

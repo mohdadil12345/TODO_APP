@@ -15,9 +15,7 @@ export class TodoeditpopupComponent {
     
   @Output() editTodo: EventEmitter<TodoTypes> = new EventEmitter<TodoTypes>();
 
- constructor() {
-
- }
+ constructor() {}
 
   ngOnInit(): void {
     // console.log("todo", this.todo);
@@ -27,7 +25,7 @@ export class TodoeditpopupComponent {
 
   handleEdit_form(): void {
       // console.log(this.edited_todo.title, this.edited_todo.description)
-    alert("adil")
+    alert("item edited successfull")
     this.editTodo.emit(this.edited_todo)
 
 
