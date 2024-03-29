@@ -12,37 +12,60 @@ export class TodoComponent {
   title: string = '';
   description : string  = ""
   status : string = ""
-
   users: TodoTypes[] = []
       
+
+  constructor() { }
+
+  ngOnInit(): void {
+    const lsdata = JSON.parse(localStorage.getItem("todo") || '[]');
+    this.users = lsdata;
+  }
 
 
   handle_form(ele: NgForm) {
 
-    console.log(ele.value)
+
+    let obj = {
+        title : ele.value.title,
+        description : ele.value.title,
+        status : ele.value.title,
+        id : Date.now()
+    }
+    // console.log(obj)
 
 
       const lsdata = JSON.parse(localStorage.getItem("todo") || '[]')
 
         if(lsdata) {
-          lsdata.push(ele.value)
+          lsdata.push(obj)
 
           localStorage.setItem("todo", JSON.stringify(lsdata))
         }else{
-          localStorage.setItem("todo", JSON.stringify(ele.value))
+          localStorage.setItem("todo", JSON.stringify([obj]))
 
         }
   
     ele.resetForm()
-  
+    this.users.push(obj)
 
   }
 
 
 
 
+  // delete 
+
+handle_delete(id : any) {
+
+  this.users = this.users.filter((ele: any) => ele.id !== id);
+  localStorage.setItem("todo", JSON.stringify(this.users)); 
+  alert("Item Deleted");
 
 
+
+
+}
 
 
 
