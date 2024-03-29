@@ -1,20 +1,21 @@
 <div class="taskadd">
   <form (ngSubmit)="handle_form(form_data)" #form_data="ngForm">
-    <input [(ngModel)]="title" name="title" type="text" placeholder="title" />
+    <input [(ngModel)]="title" name="title" type="text" placeholder="title" required />
     <input
       [(ngModel)]="description"
       name="description"
       type="text"
       placeholder="description"
+      required
     />
 
-    <select [(ngModel)]="status" name="status">
+    <select [(ngModel)]="status" name="status" required>
       <option value="">Select Status</option>
       <option value="Completed">Completed</option>
       <option value="Pending">Pending</option>
     </select>
 
-    <button type="submit">ADD</button>
+    <button  [disabled]="!form_data.form.valid" type="submit">ADD</button>
   </form>
 </div>
 
@@ -22,9 +23,9 @@
   <div *ngFor="let ele of users" class="items">
     <h3>Title : {{ ele.title }}</h3>
     <p>description : {{ ele.description }}</p>
-    <p>status : {{ ele.status }}</p>
+    <p class="status" (click)="handle_status(ele.id)">status : {{ ele.status }}</p>
     <button (click)="handle_delete(ele.id)">DELETE</button>
 
-    <button>EDIT</button>
+    <button (click)="handle_edit(ele.id)">EDIT</button>
   </div>
 </div>

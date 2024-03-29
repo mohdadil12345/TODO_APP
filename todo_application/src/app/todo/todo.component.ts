@@ -15,7 +15,6 @@ export class TodoComponent {
   users: TodoTypes[] = []
       
 
-  constructor() { }
 
   ngOnInit(): void {
     const lsdata = JSON.parse(localStorage.getItem("todo") || '[]');
@@ -49,6 +48,7 @@ export class TodoComponent {
     ele.resetForm()
     this.users.push(obj)
 
+
   }
 
 
@@ -60,13 +60,33 @@ handle_delete(id : any) {
 
   this.users = this.users.filter((ele: any) => ele.id !== id);
   localStorage.setItem("todo", JSON.stringify(this.users)); 
-  alert("Item Deleted");
-
 
 
 
 }
 
+
+// toggle
+
+handle_status(id: number) {
+
+  this.users = this.users.map((ele: TodoTypes) => {
+    if (ele.id === id) {
+      ele.status = ele.status === 'Completed' ? 'Pending' : 'Completed';
+    }
+    return ele;
+  });
+  localStorage.setItem("todo", JSON.stringify(this.users));
+}
+
+
+
+
+//  update 
+
+handle_edit() {
+
+}
 
 
 
