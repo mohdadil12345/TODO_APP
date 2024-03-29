@@ -1,0 +1,15 @@
+
+<div class="popup">
+    <h2>Edit Todo</h2>
+    <form (ngSubmit)="handleEdit_form()">
+      <input [(ngModel)]="edited_todo.title" name="title" type="text" placeholder="Title" />
+      <input [(ngModel)]="edited_todo.description" name="description" type="text" placeholder="Description" />
+      <select [(ngModel)]="edited_todo.status" name="status">
+        <option value="Completed">Select Status</option>
+        <option value="Completed">Completed</option>
+        <option value="Pending">Pending</option>
+      </select>
+      <button type="submit">Update</button>
+    </form>
+  </div>
+  

@@ -26,6 +26,9 @@
     <p class="status" (click)="handle_status(ele.id)">status : {{ ele.status }}</p>
     <button (click)="handle_delete(ele.id)">DELETE</button>
 
-    <button (click)="handle_edit(ele.id)">EDIT</button>
+    <button (click)="edit_popup(ele)">EDIT</button>
   </div>
 </div>
+
+
+<app-todoeditpopup *ngIf="show_popup" [todo]="selected_todo" (editTodo) = "Update_Todo($event)"  ></app-todoeditpopup>

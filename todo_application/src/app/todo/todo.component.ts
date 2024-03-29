@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { TodoTypes } from '../todo-types';
 
+
 @Component({
   selector: 'app-todo',
   templateUrl: './todo.component.html',
@@ -13,12 +14,18 @@ export class TodoComponent {
   description : string  = ""
   status : string = ""
   users: TodoTypes[] = []
-      
 
+  show_popup : boolean = false
+  selected_todo: any ; 
+
+      
+  constructor() {
+   }
 
   ngOnInit(): void {
     const lsdata = JSON.parse(localStorage.getItem("todo") || '[]');
     this.users = lsdata;
+
   }
 
 
@@ -84,7 +91,29 @@ handle_status(id: number) {
 
 //  update 
 
-handle_edit() {
+edit_popup(ele : TodoTypes) {
+  // console.log("ele", ele)
+  this.selected_todo = ele
+  this.show_popup = true;
+}
+
+
+// Update_Todo
+
+Update_Todo (item : TodoTypes) {
+     console.log("item", item)
+
+ const indexx = this.users.findIndex(ele => ele.id == item.id)
+
+      console.log("index", indexx)
+
+
+    if(indexx !== -1){
+      this.users[indexx] = item;
+      localStorage.setItem("todo", JSON.stringify(this.users));
+    }
+
+    this.show_popup = false
 
 }
 
