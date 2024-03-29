@@ -21,6 +21,7 @@
 <div class="todooos">
   <div *ngFor="let ele of users" class="items">
     <h3>Title : {{ ele.title }}</h3>
+    <p>description : {{ ele.description }}</p>
     <p>status : {{ ele.status }}</p>
     <button (click)="handle_delete(ele.id)">DELETE</button>
 

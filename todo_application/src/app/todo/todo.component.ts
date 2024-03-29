@@ -28,11 +28,11 @@ export class TodoComponent {
 
     let obj = {
         title : ele.value.title,
-        description : ele.value.title,
-        status : ele.value.title,
+        description : ele.value.description,
+        status : ele.value.status,
         id : Date.now()
     }
-    // console.log(obj)
+    console.log(obj)
 
 
       const lsdata = JSON.parse(localStorage.getItem("todo") || '[]')
