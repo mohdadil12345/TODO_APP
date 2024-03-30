@@ -9,6 +9,8 @@ import { TodoComponent } from './todo/todo.component';
 import { FormsModule } from '@angular/forms';
 import { TodoeditpopupComponent } from './todo/todoeditpopup/todoeditpopup.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+
 
 @NgModule({
   declarations: [
@@ -16,13 +18,16 @@ import { HttpClientModule } from '@angular/common/http';
     HeaderComponent,
     HomePageComponent,
     TodoComponent,
-    TodoeditpopupComponent
+    TodoeditpopupComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    CKEditorModule
+   
   ],
   providers: [],
   bootstrap: [AppComponent]

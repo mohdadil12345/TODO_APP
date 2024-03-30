@@ -1,34 +1,41 @@
+<!-- <ckeditor [editor]="Editor" data="<p>Hello, world!</p>"></ckeditor> -->
+
 <div class="taskadd">
   <form (ngSubmit)="handle_form(form_data)" #form_data="ngForm">
     <input [(ngModel)]="title" name="title" type="text" placeholder="title" required />
-    <input
-      [(ngModel)]="description"
-      name="description"
-      type="text"
-      placeholder="description"
-      required
-    />
-
+    <input [(ngModel)]="description" name="description" type="text" placeholder="description" required />
     <select [(ngModel)]="status" name="status" required>
       <option value="">Select Status</option>
       <option value="Completed">Completed</option>
       <option value="Pending">Pending</option>
     </select>
-
-    <button  [disabled]="!form_data.form.valid" type="submit">ADD</button>
+    <button [disabled]="!form_data.form.valid" type="submit">ADD</button>
   </form>
 </div>
 
 <div class="todooos">
   <div *ngFor="let ele of users" class="items">
-    <h3>Title : {{ ele.title }}</h3>
-    <p>description : {{ ele.description }}</p>
-    <p class="status" (click)="handle_status(ele.id)">status : {{ ele.status }}</p>
+    <h3>Title: {{ ele.title }}</h3>
+
+
+    <div class="description-container">
+      <p>Description: <span (click)="toggleCKEditor(ele.id)" [innerHTML]="ele.description"></span></p>
+
+      <div class="editor" *ngIf="editorStates[ele.id]">
+        <ckeditor [editor]="Editor" [(ngModel)]="ele.description"></ckeditor>
+      </div>
+
+    </div>
+
+
+
+    <p class="status" (click)="handle_status(ele.id)">Status: {{ ele.status }}</p>
     <button (click)="handle_delete(ele)">DELETE</button>
 
     <button (click)="edit_popup(ele)">EDIT</button>
+
+
   </div>
 </div>
 
-
-<app-todoeditpopup *ngIf="show_popup" [todo]="selected_todo" (editTodo) = "Update_Todo($event)"   ></app-todoeditpopup>
+<app-todoeditpopup *ngIf="show_popup" [todo]="selected_todo" (editTodo)="Update_Todo($event)"></app-todoeditpopup>
