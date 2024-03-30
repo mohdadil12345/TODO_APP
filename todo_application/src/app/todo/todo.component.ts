@@ -86,10 +86,13 @@ export class TodoComponent {
   // delete
 
   handle_delete(item : any) {
-    console.log("ele", item)
+    console.log("item", item)
+
+    let elID = "-" + item._id
+
     if (navigator.onLine) {
       // Online mode
-      this.http.delete(`${this.url}posts/${item._id}.json`).subscribe((deleteddata)=> {
+     this.http.delete(`${this.url}posts/${elID}.json`).subscribe((deleteddata)=> {
         console.log("daata",deleteddata )
         this.fetchTodo()
         alert("item deleted successfully in online")
