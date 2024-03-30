@@ -24,7 +24,7 @@
     <h3>Title : {{ ele.title }}</h3>
     <p>description : {{ ele.description }}</p>
     <p class="status" (click)="handle_status(ele.id)">status : {{ ele.status }}</p>
-    <button (click)="handle_delete(ele.id)">DELETE</button>
+    <button (click)="handle_delete(ele)">DELETE</button>
 
     <button (click)="edit_popup(ele)">EDIT</button>
   </div>
