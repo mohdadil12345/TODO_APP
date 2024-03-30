@@ -4,7 +4,6 @@ require("dotenv").config()
 const cors = require("cors")
 
 const {connection} = require("./db")
-const {userRouter} = require("./routes/user.routes")
 const { taskRouter } = require("./routes/task.routes")
 
 
@@ -13,7 +12,6 @@ app.use(express.json())
 app.use(cors())
 
 
-app.use("/users", userRouter)
 app.use("/posts", taskRouter)
 
 

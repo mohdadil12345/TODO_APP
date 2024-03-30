@@ -31,7 +31,7 @@ taskRouter.get("/",  async (req, res) => {
 });
 
 // PATCH endpoint to update a task
-taskRouter.patch("/update/:id", auth, async (req, res) => {
+taskRouter.patch("/update/:id",  async (req, res) => {
     const { id } = req.params;
    
     try {
@@ -45,7 +45,7 @@ taskRouter.patch("/update/:id", auth, async (req, res) => {
 });
 
 // DELETE endpoint to delete a task
-taskRouter.delete("/delete/:id", auth, async (req, res) => {
+taskRouter.delete("/delete/:id", async (req, res) => {
     const { id } = req.params;
 
     try {
