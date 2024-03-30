@@ -10,9 +10,9 @@ taskRouter.post("/add",  async (req, res) => {
     try {
         const data = new taskModel({ ...req.body});
         await data.save();
-        res.status(200).json({ msg: "Task added successfully", data });
+        res.status(200).json(data);
     } catch (err) {
-        res.status(400).json({ error: "Failed to add task", msg: err.message });
+        res.status(400).json({ error: "Failed to add todo"});
     }
 });
 
@@ -24,9 +24,9 @@ taskRouter.get("/",  async (req, res) => {
         const data = await taskModel.find() 
     
 
-        res.status(200).json({ msg: "todo retrieved successfully", data });
+        res.status(200).json(data );
     } catch (err) {
-        res.status(400).json({ error: "todo to retrieve tasks", msg: err.message });
+        res.status(400).json({ error: "Failed to get todo"});
     }
 });
 
@@ -40,7 +40,7 @@ taskRouter.patch("/update/:id",  async (req, res) => {
             res.status(200).json({ msg: "Task updated successfully" });
        
     } catch (err) {
-        res.status(400).json({ error: "Failed to update task" });
+        res.status(400).json({ error: "Failed to update todo" });
     }
 });
 
@@ -51,10 +51,10 @@ taskRouter.delete("/delete/:id", async (req, res) => {
     try {
       
             await taskModel.findByIdAndDelete({ _id: id }, req.body);
-            res.status(200).json({ msg: "Task deleted successfully" });
+            res.status(200).json({ msg: "todo deleted successfully" });
         
     } catch (err) {
-        res.status(400).json({ error: "Failed to delete task"});
+        res.status(400).json({ error: "Failed to delete todo"});
     }
 });
 
