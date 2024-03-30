@@ -26,6 +26,11 @@ export class TodoComponent {
       this.users = lsdata;
 
     this.fetchTodo();
+
+    window.addEventListener('online', () => {
+      this.syn_with_server();
+    });
+    
   }
 
   handle_form(ele: NgForm) {
@@ -47,6 +52,7 @@ export class TodoComponent {
           // console.log("data posted", data)
 
           ele.resetForm();
+          this.fetchTodo();
         });
     } else {
       const lsdata = JSON.parse(localStorage.getItem('todo') || '[]');
@@ -88,7 +94,7 @@ export class TodoComponent {
   handle_delete(item : any) {
     console.log("item", item)
 
-    let elID = "-" + item._id
+    let elID = "-" + item._id 
 
     if (navigator.onLine) {
       // Online mode
@@ -145,4 +151,27 @@ export class TodoComponent {
 
     this.show_popup = false;
   }
+
+
+
+
+
+
+
+ syn_with_server() {
+    const lsdata = JSON.parse(localStorage.getItem('todo') || '[]');
+    lsdata.forEach((item: any) => {
+      this.http.post(`${this.url}posts.json`, item).subscribe(() => {
+      
+        // localStorage.setItem('todo', '[]');
+        this.fetchTodo(); 
+      });
+    });
+  }
+
+
+
+
+
+
 }
