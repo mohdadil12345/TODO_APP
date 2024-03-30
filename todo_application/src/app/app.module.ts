@@ -8,6 +8,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { TodoComponent } from './todo/todo.component';
 import { FormsModule } from '@angular/forms';
 import { TodoeditpopupComponent } from './todo/todoeditpopup/todoeditpopup.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { TodoeditpopupComponent } from './todo/todoeditpopup/todoeditpopup.compo
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
