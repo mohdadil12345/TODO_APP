@@ -1,10 +1,11 @@
 {
-    "data": {
-        "details": "Bienvenue dans mon application de liste de tâches",
-        "french": "french",
-        "english":"Anglais",
-        "hindi": "Hindi",
-        "language": "choisissez votre langue"
-    }
-    
+  "home": "Accueil",
+  "todo": "À faire",
+  "logo": "Logo",
+  "title": "Titre",
+  "description": "Description",
+  "status": "Statut",
+  "delete": "Supprimer",
+  "edit": "Éditer",
+  "share": "Partager"
 }

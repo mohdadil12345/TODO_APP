@@ -4,6 +4,8 @@ import { TodoTypes } from '../todo-types';
 import { HttpClient } from '@angular/common/http';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { TranslateService } from '@ngx-translate/core';
+import { catchError, forkJoin } from 'rxjs';
+
 
 @Component({
   selector: 'app-todo',
@@ -22,18 +24,31 @@ export class TodoComponent {
   editorStates: { [key: string]: boolean } = {};
   show_form: boolean = false;
 
-  constructor(private http: HttpClient, private translate : TranslateService) {
-    this.translate.addLangs(['en']);
-    this.translate.setDefaultLang('en');
-    this.translate.use('en');
-  }
+  loading = true;
+
+  globalData: any = [];
+  status_fil : string = ""
+
+  constructor(private http: HttpClient, private translate : TranslateService) {}
 
   ngOnInit(): void {
+    
+    this.translate.setDefaultLang('en');
+    this.translate.use(localStorage.getItem("lang") || "en")
+
+
+
     this.fetchTodo();
     window.addEventListener('online', () => {
       this.syn_with_server();
     });
   }
+
+
+
+
+
+
 
   handle_form(ele: NgForm) {
     let obj = {
@@ -42,6 +57,7 @@ export class TodoComponent {
       status: this.status,
       id: this.selected_todo ? this.selected_todo.id : Date.now(),
     };
+    console.log(obj)
 
     if (navigator.onLine) {
    
@@ -58,7 +74,13 @@ export class TodoComponent {
             this.fetchTodo();
           });
       }
-    } else {
+    }
+    
+    
+    
+    
+    
+    else {
       
       const lsdata = JSON.parse(localStorage.getItem('todo') || '[]');
       if (this.selected_todo) {
@@ -92,6 +114,8 @@ export class TodoComponent {
             ...res[key],
           }));
           this.users = newArr;
+          this.globalData = newArr
+          this.loading = false;
         });
     } else {
       // Fetch tasks from local storage
@@ -104,18 +128,21 @@ export class TodoComponent {
 
   handle_delete(item: any) {
     let elID = item._id;
+    // console.log(elID)
   
     if (navigator.onLine) {
-      this.http.delete(`${this.url}posts/${elID}.json`).subscribe(
-        () => {
-          this.fetchTodo(); 
-          alert('Item deleted successfully in online mode');
-        },
-        (error) => {
-          console.error('Error deleting item:', error);
-          alert('An error occurred while deleting the item. Please try again later.');
-        }
-      );
+        this.http.delete(`${this.url}posts/${elID}.json`).subscribe((data:any)=> {
+          //  console.log(data)
+           this.fetchTodo()
+           alert("todo deleted")
+             
+      })
+     
+   
+
+
+
+
     } else {
       let lsdata = JSON.parse(localStorage.getItem('todo') || '[]');
       lsdata = lsdata.filter((ele: any) => ele.id !== item.id);
@@ -154,16 +181,42 @@ export class TodoComponent {
     this.show_popup = false;
   }
 
+
+
+
+  // syn_with_server() {
+  //   const lsdata = JSON.parse(localStorage.getItem('todo') || '[]');
+  //   lsdata.forEach((item: any) => {
+  //     this.http.post(`${this.url}posts.json`, item).subscribe(() => {
+      
+  //       localStorage.removeItem('todo');
+  //       // this.fetchTodo(); 
+  //     });
+  //   });
+  // }
+
+
   syn_with_server() {
     const lsdata = JSON.parse(localStorage.getItem('todo') || '[]');
-    lsdata.forEach((item: any) => {
-      this.http.post(`${this.url}posts.json`, item).subscribe(() => {
-        localStorage.setItem('todo', '[]');
-        this.fetchTodo();
-      });
+    const syncRequests = lsdata.map((item: any) => {
+        return this.http.post(`${this.url}posts.json`, item);
     });
-  }
 
+    forkJoin(syncRequests).subscribe(
+        () => {
+            localStorage.removeItem('todo');
+            this.fetchTodo(); 
+        },
+        error => {
+            console.error('Error syncing item:', error);
+           
+        }
+    );
+}
+
+
+
+  
   toggleCKEditor(descriptionId: any): void {
     Object.keys(this.editorStates).forEach((key) => {
       this.editorStates[key] = false;
@@ -197,6 +250,36 @@ export class TodoComponent {
 this.translate.use(event.target.value)
 
   }
+
+
+  //  search by title
+
+  serchfilter: string = '';
+
+  handle_filter() {
+    this.users = this.globalData.filter((ele: any) =>
+      ele.title.toLowerCase().includes(this.serchfilter.toLowerCase())
+    );
+
+  }
+
+
+//  filter my status
+  filter_by_status() {
+   if(this.status_fil == "") {
+    this.users  = this.globalData
+   }else{
+    this.users = this.globalData.filter((ele:any) => 
+         ele.status.includes(this.status_fil)
+      )
+    
+   }
+  }
+
+
+
+
+
 
 
 

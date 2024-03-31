@@ -1,13 +1,12 @@
-
-
 {
-    "data" : {
-        "details" :"welcome to my todo-app",
-        "english" : "english",
-        "hindi" : "hindi",
-        "french":"french",
-         "language" : "choose your language"
-       
-
-    }
-}
+    "home": "Home",
+    "todo": "Todo",
+    "logo": "Logo",
+    "title": "Title",
+    "description": "Description",
+    "status": "Status",
+    "delete": "Delete",
+    "edit": "Edit",
+    "share": "Share"
+  }
+  

@@ -1,17 +1,4 @@
-<!-- <ckeditor [editor]="Editor" data="<p>Hello, world!</p>"></ckeditor> -->
 
-<div class="language">
-    {{'data.language' | translate}}
-
-  <select (change)="select_lang($event)"  name="select" >
-    <option value="en">{{'data.english' | translate}}</option>
-    <option value="nl">{{'data.hindi' | translate}}</option>
-    <option value="fr">{{'data.french' | translate}}</option>
-  </select>
-
-  <h2>{{'data.details' | translate}}</h2>
-
-</div>
 
 <div class="taskadd">
   <form (ngSubmit)="handle_form(form_data)" #form_data="ngForm">
@@ -26,13 +13,24 @@
   </form>
 </div>
 
+<input [(ngModel)]="serchfilter" class="searc_input" (input)="handle_filter()" placeholder="search by title" type="text">
+
+
+<select [(ngModel)]="status_fil" (change)="filter_by_status()"  class="select_tag" name="status">
+  <option value="">Select By Status</option>
+  <option value="Completed">Completed</option>
+  <option value="Pending">Pending</option>
+
+</select>
+
+
 <div class="todooos">
   <div *ngFor="let ele of users" class="items">
-    <h3>Title: {{ ele.title }}</h3>
+    <h3>{{ 'title' | translate }}: {{ ele.title  | translate}}</h3>
 
 
     <div class="description-container">
-      <p>Description: <span (click)="toggleCKEditor(ele.id)" [innerHTML]="ele.description"></span></p>
+      <p>{{ 'description' | translate }}: <span (click)="toggleCKEditor(ele.id)" [innerHTML]="ele.description"></span></p>
 
       <div class="editor" *ngIf="editorStates[ele.id]">
         <ckeditor [editor]="Editor" [(ngModel)]="ele.description"></ckeditor>
@@ -42,14 +40,14 @@
 
 
 
-    <p class="status" (click)="handle_status(ele.id)">Status: {{ ele.status }}</p>
-    <button (click)="handle_delete(ele)">DELETE</button>
+    <p class="status" (click)="handle_status(ele.id)">{{ 'status' | translate }}: {{ ele.status }}</p>
+    <button (click)="handle_delete(ele)">{{ 'delete' | translate }}</button>
 
-    <button (click)="edit_popup(ele)">EDIT</button>
+    <button (click)="edit_popup(ele)">{{ 'edit' | translate }}</button>
 
 
 
-    <button (click)="shareable_link()">SHARE</button>
+    <button (click)="shareable_link()">{{ 'share' | translate }}</button>
 
 
 
