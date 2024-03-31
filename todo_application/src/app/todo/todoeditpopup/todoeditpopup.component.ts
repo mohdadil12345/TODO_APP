@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { TodoTypes } from '../../todo-types';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 @Component({
   selector: 'app-todoeditpopup',
@@ -9,8 +10,12 @@ import { TodoTypes } from '../../todo-types';
 export class TodoeditpopupComponent {
 
   @Input() todo: any
+  public Editor = ClassicEditor;
+  editorStates: { [key: string]: boolean } = {};
 
   edited_todo : any = []
+  descriptionvalue : string = ""
+  titlevalue : string = ""
 
     
   @Output() editTodo: EventEmitter<TodoTypes> = new EventEmitter<TodoTypes>();
@@ -32,4 +37,20 @@ export class TodoeditpopupComponent {
   }
 
 
+
+  descriptionvalueChange(event : any) {
+    console.log(event)
+    this.descriptionvalue = event
+    this.edited_todo.description = event
+  }
+
+
+  titleChange(event : any){
+    console.log(event)
+    this.titlevalue = event
+    this.edited_todo.title = event
+  }
+
+
 }
+

@@ -269,12 +269,6 @@ localStorage.setItem("lang", selectedLang);
 
 
 
-  getvalueFromEdtr() {
-      // console.log(this.descriptionvalue)
-    
-  }
-
-
   descriptionvalueChange(event : any) {
     console.log(event)
     this.descriptionvalue = event

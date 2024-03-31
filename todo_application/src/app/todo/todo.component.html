@@ -1,10 +1,5 @@
 
 
-<!-- <div class="editor" *ngIf="editorStates"> -->
-  <!-- <button  (click)="getvalueFromEdtr()" >EDITOR</button> -->
-<!-- </div>  -->
-
-
 <div class="taskadd">
 
 
@@ -49,22 +44,12 @@
   <div *ngFor="let ele of users" class="items">
 
     <h3>{{ 'title' | translate }}: </h3>
-    <h3>{{ ele.title  | translate}}</h3>
+    <h3 [innerHTML]="ele.title | translate"></h3>
+    <!-- <h3>{{ ele.title  | translate}}</h3> -->
 
     <p>{{ 'description' | translate }}</p>
-    <p>{{ ele.description  | translate}}</p>
-
-<!-- 
-
-    <div class="description-container">
-      <p>{{ 'description' | translate }}: <span (click)="toggleCKEditor(ele.id)" [innerHTML]="ele.description"></span></p>
-
-      <div class="editor" *ngIf="editorStates[ele.id]">
-        <ckeditor [editor]="Editor" [(ngModel)]="ele.description"></ckeditor>
-      </div>
-
-    </div> -->
-
+    <h3 [innerHTML]="ele.description | translate"></h3>
+    <!-- <p>{{ ele.description  | translate}}</p> -->
 
 
 

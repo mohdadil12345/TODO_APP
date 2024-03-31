@@ -1,16 +1,44 @@
-
-
 <div class="popup">
-    <h2>Edit Todo</h2>
-    <form (ngSubmit)="handleEdit_form()">
-      <input [(ngModel)]="edited_todo.title" name="title" type="text" placeholder="Title" />
-      <input [(ngModel)]="edited_todo.description" name="description" type="text" placeholder="Description" />
-      <select [(ngModel)]="edited_todo.status" name="status">
-        <option value="Completed">Select Status</option>
-        <option value="Completed">Completed</option>
-        <option value="Pending">Pending</option>
-      </select>
-      <button type="submit">Update</button>
-    </form>
-  </div>
-  
+  <p>Title :</p>
+  <ckeditor
+    [editor]="Editor"
+    [(ngModel)]="titlevalue"
+    (ngModelChange)="titleChange($event)"
+  ></ckeditor>
+
+  <p>Description :</p>
+  <ckeditor
+    [editor]="Editor"
+    [(ngModel)]="descriptionvalue"
+    (ngModelChange)="descriptionvalueChange($event)"
+  ></ckeditor>
+
+  <h2>Edit Todo</h2>
+  <form (ngSubmit)="handleEdit_form()">
+    <input
+      [(ngModel)]="edited_todo.title"
+      name="title"
+      value="{{ titlevalue }}"
+      type="text"
+      placeholder="Title"
+    class="hide"
+
+    />
+    <input
+      [(ngModel)]="edited_todo.description"
+      value="{{ descriptionvalue }}"
+      name="description"
+    class="hide"
+
+      type="text"
+      placeholder="Description"
+    />
+    <select [(ngModel)]="edited_todo.status" name="status">
+      <option value="Completed">Select Status</option>
+      <option value="Completed">Completed</option>
+      <option value="Pending">Pending</option>
+    </select>
+    <button type="submit">Update</button>
+    <button>Cancel</button>
+  </form>
+</div>
