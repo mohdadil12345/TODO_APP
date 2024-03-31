@@ -1,0 +1,10 @@
+{
+    "data": {
+        "details": "Bienvenue dans mon application de liste de tâches",
+        "french": "french",
+        "english":"Anglais",
+        "hindi": "Hindi",
+        "language": "choisissez votre langue"
+    }
+    
+}

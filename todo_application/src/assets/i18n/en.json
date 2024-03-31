@@ -1,0 +1,13 @@
+
+
+{
+    "data" : {
+        "details" :"welcome to my todo-app",
+        "english" : "english",
+        "hindi" : "hindi",
+        "french":"french",
+         "language" : "choose your language"
+       
+
+    }
+}

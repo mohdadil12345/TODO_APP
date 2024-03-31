@@ -25,6 +25,8 @@
     "@ckeditor/ckeditor5-engine": "^41.2.1",
     "@ckeditor/ckeditor5-utils": "^41.2.1",
     "@ckeditor/ckeditor5-watchdog": "^41.2.1",
+    "@ngx-translate/core": "^15.0.0",
+    "@ngx-translate/http-loader": "^8.0.0",
     "@syncfusion/ej2-angular-richtexteditor": "^25.1.37",
     "react-hot-toast": "^2.4.1",
     "rxjs": "~7.8.0",

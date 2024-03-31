@@ -1,5 +1,18 @@
 <!-- <ckeditor [editor]="Editor" data="<p>Hello, world!</p>"></ckeditor> -->
 
+<div class="language">
+    {{'data.language' | translate}}
+
+  <select (change)="select_lang($event)"  name="select" >
+    <option value="en">{{'data.english' | translate}}</option>
+    <option value="nl">{{'data.hindi' | translate}}</option>
+    <option value="fr">{{'data.french' | translate}}</option>
+  </select>
+
+  <h2>{{'data.details' | translate}}</h2>
+
+</div>
+
 <div class="taskadd">
   <form (ngSubmit)="handle_form(form_data)" #form_data="ngForm">
     <input [(ngModel)]="title" name="title" type="text" placeholder="title" required />

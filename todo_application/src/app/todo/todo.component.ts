@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { TodoTypes } from '../todo-types';
 import { HttpClient } from '@angular/common/http';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-todo',
@@ -21,7 +22,11 @@ export class TodoComponent {
   editorStates: { [key: string]: boolean } = {};
   show_form: boolean = false;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private translate : TranslateService) {
+    this.translate.addLangs(['en']);
+    this.translate.setDefaultLang('en');
+    this.translate.use('en');
+  }
 
   ngOnInit(): void {
     this.fetchTodo();
@@ -103,7 +108,7 @@ export class TodoComponent {
     if (navigator.onLine) {
       this.http.delete(`${this.url}posts/${elID}.json`).subscribe(
         () => {
-          this.fetchTodo(); // Fetch updated list of tasks after deletion
+          this.fetchTodo(); 
           alert('Item deleted successfully in online mode');
         },
         (error) => {
@@ -182,6 +187,16 @@ export class TodoComponent {
       }
   }
 
+
+
+  //  select_lang
+
+  select_lang(event : any){
+    // console.log(event.target.value)
+
+this.translate.use(event.target.value)
+
+  }
 
 
 
