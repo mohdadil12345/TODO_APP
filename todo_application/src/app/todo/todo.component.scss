@@ -7,7 +7,7 @@
   
 
 .taskadd{
-    width: 300px;
+    // width: 600px;
     padding: 20px;
     margin: 30px auto;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
@@ -19,20 +19,20 @@ input{
     padding: 8px;
 }
 
-button{
-    padding: 8px;
-    margin-left: 10px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
+// button{
+//     padding: 8px;
+//     margin-left: 10px;
+//     border: none;
+//     border-radius: 4px;
+//     cursor: pointer;
+// }
 
 
 .todooos{
 
     padding: 10px;
     display: grid;
-    grid-template-columns: repeat(4, 24%);
+    grid-template-columns: repeat(auto-fit, 350px);
     gap: 10px;
     justify-content: center;
     gap: 10px;
@@ -41,13 +41,12 @@ button{
 }
 
 .items{
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 150px 1fr;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    padding: 10px;
+    padding: 20px;
     border-radius: 4px;
     justify-content: center;
-   align-items: center;
    gap: 10px;
 
 }
@@ -57,10 +56,30 @@ button{
 }
 
 
-.editor {
-    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-    //  width: 400px;
-     position: absolute;
-     top: 300px;
-     left: 80px;
+// .editor {
+//     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+//     //  position: absolute;
+//      top: 300px;
+//      left: 80px;
+// }
+
+.todo_btn{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    display: flex;
+    gap: 10px;
+
+}
+
+.todo_btn button{
+     flex-grow: 1;
+    padding: 8px;
+    font-weight: 600;
+    border-radius: 4px;
+    background-color: rgb(7, 7, 33);
+    color: white;
+}
+
+.hide {
+     display: none;
 }

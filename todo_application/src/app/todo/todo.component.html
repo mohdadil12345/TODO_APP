@@ -1,9 +1,30 @@
 
 
+<!-- <div class="editor" *ngIf="editorStates"> -->
+  <!-- <button  (click)="getvalueFromEdtr()" >EDITOR</button> -->
+<!-- </div>  -->
+
+
 <div class="taskadd">
+
+
+  <p>Title : </p>
+  <ckeditor [editor]="Editor" [(ngModel)]="titlevalue"  (ngModelChange) = "titleChange($event)"  ></ckeditor>
+  
+  <p>Description : </p>
+  <ckeditor [editor]="Editor" [(ngModel)]="descriptionvalue"  (ngModelChange) = "descriptionvalueChange($event)"  ></ckeditor>
+  
+
+
+
   <form (ngSubmit)="handle_form(form_data)" #form_data="ngForm">
-    <input [(ngModel)]="title" name="title" type="text" placeholder="title" required />
-    <input [(ngModel)]="description" name="description" type="text" placeholder="description" required />
+    <input class="hide" [(ngModel)]="title" name="title" value="{{titlevalue}}" type="text" placeholder="title"/>
+
+
+
+
+    <!-- <input [(ngModel)]="title" name="title" type="text" placeholder="title" required /> -->
+    <input class="hide" [(ngModel)]="description" value="{{descriptionvalue}}" name="description" type="text" placeholder="description"/>
     <select [(ngModel)]="status" name="status" required>
       <option value="">Select Status</option>
       <option value="Completed">Completed</option>
@@ -26,8 +47,14 @@
 
 <div class="todooos">
   <div *ngFor="let ele of users" class="items">
-    <h3>{{ 'title' | translate }}: {{ ele.title  | translate}}</h3>
 
+    <h3>{{ 'title' | translate }}: </h3>
+    <h3>{{ ele.title  | translate}}</h3>
+
+    <p>{{ 'description' | translate }}</p>
+    <p>{{ ele.description  | translate}}</p>
+
+<!-- 
 
     <div class="description-container">
       <p>{{ 'description' | translate }}: <span (click)="toggleCKEditor(ele.id)" [innerHTML]="ele.description"></span></p>
@@ -36,19 +63,28 @@
         <ckeditor [editor]="Editor" [(ngModel)]="ele.description"></ckeditor>
       </div>
 
-    </div>
+    </div> -->
 
 
 
-    <p class="status" (click)="handle_status(ele.id)">{{ 'status' | translate }}: {{ ele.status }}</p>
+
+    <!-- <p class="status" (click)="handle_status(ele.id)">{{ 'status' | translate }}: {{ ele.status }}</p> -->
+
+
+    
+    <p>{{ 'status' | translate }}</p>
+    <p>{{ ele.status  | translate}}</p>
+
+
+
+
+
+  <div class="todo_btn">
     <button (click)="handle_delete(ele)">{{ 'delete' | translate }}</button>
-
     <button (click)="edit_popup(ele)">{{ 'edit' | translate }}</button>
-
-
-
     <button (click)="shareable_link()">{{ 'share' | translate }}</button>
 
+  </div>
 
 
 

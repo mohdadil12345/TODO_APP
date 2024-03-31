@@ -29,6 +29,9 @@ export class TodoComponent {
   globalData: any = [];
   status_fil : string = ""
 
+  descriptionvalue : string = ""
+  titlevalue : string = ""
+
   constructor(private http: HttpClient, private translate : TranslateService) {}
 
   ngOnInit(): void {
@@ -46,18 +49,20 @@ export class TodoComponent {
 
 
 
-
+  // onDescriptionChange(description: string) {
+  //   this.description = description;
+  // }
 
 
 
   handle_form(ele: NgForm) {
     let obj = {
-      title: this.title,
-      description: this.description,
+      title: this.titlevalue,
+      description: this.descriptionvalue,
       status: this.status,
       id: this.selected_todo ? this.selected_todo.id : Date.now(),
     };
-    console.log(obj)
+    console.log("obj", obj)
 
     if (navigator.onLine) {
    
@@ -75,9 +80,6 @@ export class TodoComponent {
           });
       }
     }
-    
-    
-    
     
     
     else {
@@ -184,18 +186,6 @@ export class TodoComponent {
 
 
 
-  // syn_with_server() {
-  //   const lsdata = JSON.parse(localStorage.getItem('todo') || '[]');
-  //   lsdata.forEach((item: any) => {
-  //     this.http.post(`${this.url}posts.json`, item).subscribe(() => {
-      
-  //       localStorage.removeItem('todo');
-  //       // this.fetchTodo(); 
-  //     });
-  //   });
-  // }
-
-
   syn_with_server() {
     const lsdata = JSON.parse(localStorage.getItem('todo') || '[]');
     const syncRequests = lsdata.map((item: any) => {
@@ -246,9 +236,9 @@ export class TodoComponent {
 
   select_lang(event : any){
     // console.log(event.target.value)
-
-this.translate.use(event.target.value)
-
+    const selectedLang = event.target.value;
+this.translate.use(selectedLang);
+localStorage.setItem("lang", selectedLang);
   }
 
 
@@ -279,8 +269,22 @@ this.translate.use(event.target.value)
 
 
 
+  getvalueFromEdtr() {
+      // console.log(this.descriptionvalue)
+    
+  }
 
 
+  descriptionvalueChange(event : any) {
+    console.log(event)
+    this.descriptionvalue = event
+  }
+
+
+  titleChange(event : any){
+    console.log(event)
+    this.titlevalue = event
+  }
 
 
 }
