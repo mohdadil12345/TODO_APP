@@ -6,16 +6,15 @@
 }
 
 .navbar {
-  background: linear-gradient(-90deg, #e5e1ff, #d0c8ff);
   color: #ffffff;
   font-weight: 600;
   padding: 10px;
-  background: linear-gradient(-90deg, #67628d, #4f467d);
   display: flex;
   gap: 20px;
-  background: #183282;
+  background-color: var(--bg6);
   align-items: center;
   justify-content: space-between;
+  font-weight: bold;
 
   .nav-menu {
     display: flex;
@@ -38,8 +37,7 @@
   }
 
   .nav-menu a:hover {
-    background: linear-gradient(45deg, #7cb4fe, #529cfc);
-    background: linear-gradient(-45deg, #ff593c, #fe8d3a);
+    background: linear-gradient(45deg, #1976D2, #1976D2);
   }
   
 
@@ -48,10 +46,17 @@
 .language{
   select{
     padding: 8px;
-    border-radius: 4px;
+   border-radius: 4px;
+   border: 1px solid var(--bg5);
+   width: 150px;
+   transition: all 0.3s ease;
+   background:var(--bg5);
+   color: white;
     cursor: pointer;
+  
     
   }
+
  
 }
 

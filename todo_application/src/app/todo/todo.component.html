@@ -1,18 +1,26 @@
 
 
+<div class="main_container">
+    
+
+
+
 <div class="taskadd">
 
+  <h1 class="heading">Add Your Todo</h1>
 
-  <p>Title : </p>
-  <ckeditor [editor]="Editor" [(ngModel)]="titlevalue"  (ngModelChange) = "titleChange($event)"  ></ckeditor>
+<div class="editor_container_main">
+  <strong>Title : </strong>
+  <ckeditor class="editor_container" [editor]="Editor" [(ngModel)]="titlevalue"  (ngModelChange) = "titleChange($event)"  ></ckeditor>
   
-  <p>Description : </p>
-  <ckeditor [editor]="Editor" [(ngModel)]="descriptionvalue"  (ngModelChange) = "descriptionvalueChange($event)"  ></ckeditor>
+  <strong>Description : </strong>
+  <ckeditor  class="editor_container" [editor]="Editor" [(ngModel)]="descriptionvalue"  (ngModelChange) = "descriptionvalueChange($event)"  ></ckeditor>
   
 
+</div>
 
 
-  <form (ngSubmit)="handle_form(form_data)" #form_data="ngForm">
+  <form class="form1" (ngSubmit)="handle_form(form_data)" #form_data="ngForm">
     <input class="hide" [(ngModel)]="title" name="title" value="{{titlevalue}}" type="text" placeholder="title"/>
 
 
@@ -27,9 +35,17 @@
     </select>
     <button [disabled]="!form_data.form.valid" type="submit">ADD</button>
   </form>
+
+ 
+
+
+
+
 </div>
 
-<input [(ngModel)]="serchfilter" class="searc_input" (input)="handle_filter()" placeholder="search by title" type="text">
+<div class="todo_container">
+  <div class="filterr">
+    <input [(ngModel)]="serchfilter" class="search_input" (input)="handle_filter()" placeholder="search by title" type="text">
 
 
 <select [(ngModel)]="status_fil" (change)="filter_by_status()"  class="select_tag" name="status">
@@ -39,41 +55,48 @@
 
 </select>
 
-
-<div class="todooos">
-  <div *ngFor="let ele of users" class="items">
-
-    <h3>{{ 'title' | translate }}: </h3>
-    <h3 [innerHTML]="ele.title | translate"></h3>
-    <!-- <h3>{{ ele.title  | translate}}</h3> -->
-
-    <p>{{ 'description' | translate }}</p>
-    <h3 [innerHTML]="ele.description | translate"></h3>
-    <!-- <p>{{ ele.description  | translate}}</p> -->
-
-
-
-    <!-- <p class="status" (click)="handle_status(ele.id)">{{ 'status' | translate }}: {{ ele.status }}</p> -->
-
-
-    
-    <p>{{ 'status' | translate }}</p>
-    <p>{{ ele.status  | translate}}</p>
-
-
-
-
-
-  <div class="todo_btn">
-    <button (click)="handle_delete(ele)">{{ 'delete' | translate }}</button>
-    <button (click)="edit_popup(ele)">{{ 'edit' | translate }}</button>
-    <button (click)="shareable_link()">{{ 'share' | translate }}</button>
-
   </div>
-
-
-
+  <div class="todooos">
+    <div *ngFor="let ele of users" class="items">
+  
+      <strong>{{ 'title' | translate }}: </strong>
+      <p [innerHTML]="ele.title | translate"></p>
+      <!-- <h3>{{ ele.title  | translate}}</h3> -->
+  
+      <strong>{{ 'description' | translate }}</strong>
+      <p [innerHTML]="ele.description | translate"></p>
+      <!-- <p>{{ ele.description  | translate}}</p> -->
+  
+  
+  
+      <!-- <p class="status" (click)="handle_status(ele.id)">{{ 'status' | translate }}: {{ ele.status }}</p> -->
+  
+  
+      
+      <strong>{{ 'status' | translate }}</strong>
+      <p>{{ ele.status  | translate}}</p>
+  
+  
+  
+  
+  
+    <div class="todo_btn">
+      <button (click)="handle_delete(ele)">{{ 'delete' | translate }}</button>
+      <button (click)="edit_popup(ele)">{{ 'edit' | translate }}</button>
+      <button (click)="shareable_link()">{{ 'share' | translate }}</button>
+  
+    </div>
+  
+  
+  
+    </div>
   </div>
 </div>
+
+
+
+</div>
+
+
 
 <app-todoeditpopup *ngIf="show_popup" [todo]="selected_todo" (editTodo)="Update_Todo($event)"></app-todoeditpopup>
