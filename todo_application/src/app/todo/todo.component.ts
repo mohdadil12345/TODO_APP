@@ -165,4 +165,28 @@ export class TodoComponent {
     });
     this.editorStates[descriptionId] = true;
   }
+
+
+//  sharable link 
+
+  shareable_link() {
+      if(navigator.share) {
+         navigator.share({
+          title : "todo-app",
+          url : "https://todo-application-pied-phi.vercel.app/"
+         }).then(()=> {
+          console.log("share success")
+         }).catch((err)=> {
+           alert("something error")
+         })
+      }
+  }
+
+
+
+
 }
+
+
+
+
