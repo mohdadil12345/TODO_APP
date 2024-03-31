@@ -1,16 +1,25 @@
 <div class="navbar">
   <div class="logo">
-    <h1>Logo</h1>
+    <h1>{{'logo' | translate}}</h1>
   </div>
 
   <div class="nav-menu ">
-    <a routerLink="">Home</a>
-    <a routerLink="todo">Todo</a>
+    <a routerLink="">{{'home' | translate}}</a>
+    <a routerLink="todo">{{'todo' | translate}}</a>
   </div>
 
-  <div class="logout" >
-    <button>LOGIN</button>
-    <button >LOGOUT</button>
-  </div>
+
+  <div class="language">
+
+
+  <select  name="select" (change)="ChangeLang($event)" >
+    <option  [selected]="lang === 'en' "  value="en">English</option>
+    <option  [selected]="lang === 'fr' " value="fr">French</option>
+    <option [selected]="lang === 'es' " value="es">Spanish</option>
+    <option [selected]="lang === 'tm' " value="tm">Tamil</option>
+  </select>
+
+
+</div>
 
 </div>
