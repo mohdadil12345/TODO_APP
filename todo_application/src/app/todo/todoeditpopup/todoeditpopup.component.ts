@@ -16,6 +16,10 @@ export class TodoeditpopupComponent {
   edited_todo : any = []
   descriptionvalue : string = ""
   titlevalue : string = ""
+  
+
+  showPopup : boolean = true
+
 
     
   @Output() editTodo: EventEmitter<TodoTypes> = new EventEmitter<TodoTypes>();
@@ -49,6 +53,14 @@ export class TodoeditpopupComponent {
     console.log(event)
     this.titlevalue = event
     this.edited_todo.title = event
+  }
+
+
+  editor_cancel() {
+
+
+    this.showPopup = false
+
   }
 
 

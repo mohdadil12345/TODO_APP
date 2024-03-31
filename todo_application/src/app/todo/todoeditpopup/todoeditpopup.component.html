@@ -1,19 +1,28 @@
-<div class="popup">
+<div *ngIf="showPopup"  class="popup">
+
+  <div class="popup_cont">
+  <h1 class="headingg">Edit Your Todo</h1>
+
+
+<div class="editor_container_main">
   <p>Title :</p>
-  <ckeditor
+
+  <ckeditor class="editor_container"
     [editor]="Editor"
     [(ngModel)]="titlevalue"
     (ngModelChange)="titleChange($event)"
   ></ckeditor>
 
   <p>Description :</p>
-  <ckeditor
+  <ckeditor class="editor_container"
     [editor]="Editor"
     [(ngModel)]="descriptionvalue"
     (ngModelChange)="descriptionvalueChange($event)"
   ></ckeditor>
 
-  <h2>Edit Todo</h2>
+</div>
+
+
   <form (ngSubmit)="handleEdit_form()">
     <input
       [(ngModel)]="edited_todo.title"
@@ -33,12 +42,21 @@
       type="text"
       placeholder="Description"
     />
+
+    <p>Status : </p>
     <select [(ngModel)]="edited_todo.status" name="status">
       <option value="Completed">Select Status</option>
       <option value="Completed">Completed</option>
       <option value="Pending">Pending</option>
     </select>
-    <button type="submit">Update</button>
-    <button>Cancel</button>
+    <button class="update_btn" type="submit">Update</button>
+    
   </form>
+
+
+  <button class="cancel_btn" (click)="editor_cancel()">Cancel</button>
+
+</div>
+
+
 </div>

@@ -7,5 +7,7 @@
   "status": "Statut",
   "delete": "Supprimer",
   "edit": "Éditer",
-  "share": "Partager"
+  "share": "Partager",
+  "head": "Ajoutez votre tâche",
+  "add": "AJOUTER"
 }

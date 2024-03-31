@@ -7,13 +7,15 @@
 
 <div class="taskadd">
 
-  <h1 class="heading">Add Your Todo</h1>
+  <h1 class="heading">{{ 'head' | translate }}</h1>
 
 <div class="editor_container_main">
-  <strong>Title : </strong>
+
+  <strong>{{ 'title' | translate }} : </strong>
   <ckeditor class="editor_container" [editor]="Editor" [(ngModel)]="titlevalue"  (ngModelChange) = "titleChange($event)"  ></ckeditor>
   
-  <strong>Description : </strong>
+  <strong>{{ 'description' | translate }} : </strong>
+
   <ckeditor  class="editor_container" [editor]="Editor" [(ngModel)]="descriptionvalue"  (ngModelChange) = "descriptionvalueChange($event)"  ></ckeditor>
   
 
@@ -33,7 +35,7 @@
       <option value="Completed">Completed</option>
       <option value="Pending">Pending</option>
     </select>
-    <button [disabled]="!form_data.form.valid" type="submit">ADD</button>
+    <button [disabled]="!form_data.form.valid" type="submit">{{ 'add' | translate }}</button>
   </form>
 
  
@@ -99,4 +101,4 @@
 
 
 
-<app-todoeditpopup *ngIf="show_popup" [todo]="selected_todo" (editTodo)="Update_Todo($event)"></app-todoeditpopup>
+<app-todoeditpopup *ngIf="show_popup"   [todo]="selected_todo" (editTodo)="Update_Todo($event)"></app-todoeditpopup>
