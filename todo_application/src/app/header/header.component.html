@@ -6,15 +6,16 @@
     <h1>{{'logo' | translate}}</h1>
   </div>
 
-  <div class="nav-menu ">
+
+
+
+  <div [ngClass]="{'close': displ, 'open': !displ, 'nav-menu': true}">
     <a routerLink="">{{'home' | translate}}</a>
     <a routerLink="todo">{{'todo' | translate}}</a>
   </div>
 
 
-  <div class="language">
-
-
+  <div class="logo_btn">
   <select  name="select" (change)="ChangeLang($event)" >
     <option  [selected]="lang === 'en' "  value="en">English</option>
     <option  [selected]="lang === 'fr' " value="fr">French</option>
@@ -22,6 +23,8 @@
     <option [selected]="lang === 'tm' " value="tm">Tamil</option>
   </select>
 
+
+  <button class="menu-btn" (click)="toggle()">{{displ_btn ? '🎫' : '❌'}}</button>
 
 </div>
 

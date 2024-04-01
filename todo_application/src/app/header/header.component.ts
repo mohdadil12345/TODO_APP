@@ -8,7 +8,8 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class HeaderComponent implements OnInit {
 
-
+  displ: boolean = true
+  displ_btn: boolean = true
   lang = ""
   constructor(private translateService : TranslateService) {
        
@@ -29,6 +30,14 @@ export class HeaderComponent implements OnInit {
       this.translateService.use(selLang)
 
   }
+
+
+
+   toggle(){
+   this.displ_btn = !this.displ_btn
+   this.displ = !this.displ
+  }
+  
 
 
 
