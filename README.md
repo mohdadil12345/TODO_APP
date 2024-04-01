@@ -2,13 +2,19 @@
 Basic Todo Application
 
 ## Screenshots
-HOME PAGE : 
+## HomePage mobile view
 ![Screenshot 1](./todo_application/src/assets/screenshots/homepage.png)
+## HomePage mobile view
 ![Screenshot 1](./todo_application/src/assets/screenshots/todofull.png)
+## HomePage mobile view
 ![Screenshot 1](./todo_application/src/assets/screenshots/addmbile.png)
+## HomePage mobile view
 ![Screenshot 1](./todo_application/src/assets/screenshots/todotask.png)
+## HomePage mobile view
 ![Screenshot 1](./todo_application/src/assets/screenshots/edit1.png)
+## HomePage mobile view
 ![Screenshot 1](./todo_application/src/assets/screenshots/edittask.png)
+## HomePage mobile view
 ![Screenshot 1](./todo_application/src/assets/screenshots/tamilalrt.png)
 
 
