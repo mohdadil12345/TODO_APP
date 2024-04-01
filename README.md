@@ -13,7 +13,7 @@ Deployed Link: https://todo-application-pied-phi.vercel.app/
 
 # Clone the repository
 
-https://github.com/mohdadil12345/Task_Management_
+https://github.com/mohdadil12345/TODO_APP
 
 ### User-side features
 - Add tasks
