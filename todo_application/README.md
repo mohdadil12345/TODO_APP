@@ -5,17 +5,17 @@ Basic Todo Application
 ## HomePage mobile view
 ![Screenshot 1](src/assets/screenshots/homepage.png)
 ## TodoPage fullscreen view
-![Screenshot 1](./todo_application/src/assets/screenshots/todofull.png)
+![Screenshot 1](src/assets/screenshots/todofull.png)
 ## add task mobile view
-![Screenshot 1](./todo_application/src/assets/screenshots/addmbile.png)
+![Screenshot 1](src/assets/screenshots/addmbile.png)
 ## todo items mobile view
-![Screenshot 1](./todo_application/src/assets/screenshots/todotask.png)
+![Screenshot 1](src/assets/screenshots/todotask.png)
 ## edit full view
-![Screenshot 1](./todo_application/src/assets/screenshots/edit1.png)
+![Screenshot 1](src/assets/screenshots/edit1.png)
 ## edit mobile view
-![Screenshot 1](./todo_application/src/assets/screenshots/edittask.png)
+![Screenshot 1](src/assets/screenshots/edittask.png)
 ## todo in tamil lang
-![Screenshot 1](./todo_application/src/assets/screenshots/tamilalrt.png)
+![Screenshot 1](src/assets/screenshots/tamilalrt.png)
 
 
 ## Deployment
