@@ -2,8 +2,13 @@
 Basic Todo Application
 
 ## Screenshots
-![Screenshot 1](src\assets\screenshots\home-1.png)
-![Screenshot 1](./todo_application/src/assets/screenshots/home-1.png)
+![Screenshot 1](./todo_application/src/assets/screenshots/homepage.png)
+![Screenshot 1](./todo_application/src/assets/screenshots/todofull.png)
+![Screenshot 1](./todo_application/src/assets/screenshots/addmbile.png)
+![Screenshot 1](./todo_application/src/assets/screenshots/todotask.png)
+![Screenshot 1](./todo_application/src/assets/screenshots/edit1.png)
+![Screenshot 1](./todo_application/src/assets/screenshots/edittask.png)
+![Screenshot 1](./todo_application/src/assets/screenshots/tamilalrt.png)
 
 
 ## Deployment
