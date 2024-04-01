@@ -14,6 +14,8 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatIconModule } from '@angular/material/icon';
+
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -36,6 +38,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     HttpClientModule,
     CKEditorModule,
     BrowserAnimationsModule,
+    MatIconModule,
     ToastrModule.forRoot(),
     TranslateModule.forRoot({
       loader: {
