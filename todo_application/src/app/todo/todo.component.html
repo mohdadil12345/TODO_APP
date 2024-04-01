@@ -32,7 +32,7 @@
     <input class="hide" [(ngModel)]="description" value="{{descriptionvalue}}" name="description" type="text" placeholder="description"/>
 
 
-    <p>Status : </p>
+    <strong>{{ 'status' | translate }} : </strong>
     <select [(ngModel)]="status" name="status" required>
       <option value="">Select Status</option>
       <option value="Completed">Completed</option>
