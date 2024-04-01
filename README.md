@@ -6,9 +6,9 @@ Basic Todo Application
 ![Screenshot 1](./todo_application/src/assets/screenshots/homepage.png)
 ## TodoPage fullscreen view
 ![Screenshot 1](./todo_application/src/assets/screenshots/todofull.png)
-## form mobile view
+## add task mobile view
 ![Screenshot 1](./todo_application/src/assets/screenshots/addmbile.png)
-## todo data mobile view
+## todo items mobile view
 ![Screenshot 1](./todo_application/src/assets/screenshots/todotask.png)
 ## edit full view
 ![Screenshot 1](./todo_application/src/assets/screenshots/edit1.png)
@@ -27,21 +27,23 @@ Deployed Link: https://todo-application-pied-phi.vercel.app/
 https://github.com/mohdadil12345/TODO_APP
 
 ### User-side features
-- Add tasks
-- View tasks
-- Update tasks
-- Delete tasks
-- Search functionality
-- Filter functionality
+- Add tasks in both online and offline mode.
+- View tasks in both online and offline mode.
+- Update tasks in both online and offline mode.
+- Delete tasks in both online and offline mode.
+- Search functionality in online mode.
+- Filter functionality in online mode.
+- when came back from offline to online ls data sync to server.
 
 ### Developer-side features
 
 - Fully Responsive websites in mobile view.
-- For desining used sass.
-- Usage of Bootstrap for Home Page.nd
-- Use of different HTTPClient for fetch api.
+- Interactive Todo List
+- For designing used sass.
+- Local Storage Integration: 
+- Usage of Bootstrap for Home Page.
 - Angular toaster used for success message.
--  translator also implement in navbar.
+-  translator implement in navbar for different language.
 -  ck editor used for title and description.
 
 ## Tools and Technologies
@@ -70,6 +72,6 @@ Following are the major dependencies of the project:
 
 1.Install Angular CLI : npm install -g @angular/cli
 2. Run the Application : ng serve --open
-3. Go to https://todo-application-pied-phi.vercel.app/
+3. Go to https://todo-application-pied-phi.vercel.app/  or view :  https://todo-application-pied-phi.vercel.app/
 
 
