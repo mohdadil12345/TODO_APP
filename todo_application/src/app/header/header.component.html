@@ -3,15 +3,18 @@
 
   
   <div class="logo">
-    <h1>{{'logo' | translate}}</h1>
+    <!-- <h1>{{'logo' | translate}}</h1> -->
+
+     <img src="../../assets/logo.png" alt="">
+
   </div>
 
 
 
 
   <div [ngClass]="{'close': displ, 'open': !displ, 'nav-menu': true}">
-    <a routerLink="">{{'home' | translate}}</a>
-    <a routerLink="todo">{{'todo' | translate}}</a>
+    <a (click)="handle_show()" routerLink="">{{'home' | translate}}</a>
+    <a (click)="handle_show()" routerLink="todo">{{'todo' | translate}}</a>
   </div>
 
 
@@ -27,16 +30,9 @@
 
   <!-- <button class="menu-btn" (click)="toggle()">{{displ_btn ?   <img [src]="/assets/menu.png" alt=""> :   <img src="/assets/Close.png" alt="">}}</button> -->
   <button class="menu-btn" (click)="toggle()">
-    <img [src]="displ_btn ? '/assets/menu.png' : '/assets/Close.png'" alt="">
+    <img src= "/assets/menu.png" alt="">
   </button>
   
-
-
-  <!-- <img src="/assets/Close.png" alt="">
-  <img src="/assets/menu.png" alt=""> -->
-
-
-
 
 
 </div>

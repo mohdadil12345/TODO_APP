@@ -40,5 +40,10 @@ export class HeaderComponent implements OnInit {
   
 
 
+  handle_show() {
+   this.displ = !this.displ
+      
+  }
+
 
 }
