@@ -1,6 +1,8 @@
 # Todo-App
 Basic Todo Application
 
+# Preview : https://todo-application-pied-phi.vercel.app/todo
+
 ## Screenshots
 ## HomePage mobile view
 ![Screenshot 1](src/assets/screenshots/homepage.png)
