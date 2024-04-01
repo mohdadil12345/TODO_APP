@@ -49,12 +49,6 @@ export class TodoComponent {
 
 
 
-  // onDescriptionChange(description: string) {
-  //   this.description = description;
-  // }
-
-
-
   handle_form(ele: NgForm) {
     let obj = {
       title: this.titlevalue,
@@ -140,11 +134,6 @@ export class TodoComponent {
              
       })
      
-   
-
-
-
-
     } else {
       let lsdata = JSON.parse(localStorage.getItem('todo') || '[]');
       lsdata = lsdata.filter((ele: any) => ele.id !== item.id);
@@ -154,17 +143,35 @@ export class TodoComponent {
     }
   }
   
-
-
-  handle_status(id: number) {
-    this.users = this.users.map((ele: TodoTypes) => {
-      if (ele.id === id) {
-        ele.status = ele.status === 'Completed' ? 'Pending' : 'Completed';
-      }
-      return ele;
-    });
-    localStorage.setItem('todo', JSON.stringify(this.users));
+  handle_status(item : any) {
+    if (navigator.onLine) {
+     const  statusUpdated= this.users.map((ele: TodoTypes) => {
+        if (ele.id === item.id) {
+          ele.status = ele.status === 'Completed' ? 'Pending' : 'Completed';
+        }
+        return ele;
+      });
+      this.users = statusUpdated
+    } else {
+      // Offline mode
+      const lsdata = JSON.parse(localStorage.getItem('todo') || '[]');
+      const updatedData = lsdata.map((ele: TodoTypes) => {
+        if (ele.id === item.id) {
+          ele.status = ele.status === 'Completed' ? 'Pending' : 'Completed';
+        }
+        return ele;
+      });
+      localStorage.setItem('todo', JSON.stringify(updatedData)); 
+      this.users = updatedData; 
+    }
   }
+  
+
+
+
+
+
+
 
   edit_popup(ele: TodoTypes) {
     this.selected_todo = ele;

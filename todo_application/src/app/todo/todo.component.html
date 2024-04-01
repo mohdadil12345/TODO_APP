@@ -63,25 +63,19 @@
   
       <strong>{{ 'title' | translate }}: </strong>
       <p [innerHTML]="ele.title | translate"></p>
-      <!-- <h3>{{ ele.title  | translate}}</h3> -->
+
   
       <strong>{{ 'description' | translate }}</strong>
       <p [innerHTML]="ele.description | translate"></p>
-      <!-- <p>{{ ele.description  | translate}}</p> -->
+    
   
   
-  
-      <!-- <p class="status" (click)="handle_status(ele.id)">{{ 'status' | translate }}: {{ ele.status }}</p> -->
-  
-  
-      
-      <strong>{{ 'status' | translate }}</strong>
-      <p>{{ ele.status  | translate}}</p>
-  
-  
-  
-  
-  
+    <strong>{{ 'status' | translate }}</strong>
+
+    <p [style.color]="ele.status.toLowerCase() === 'completed' ? 'green' : 'red'" (click)="handle_status(ele)">{{ ele.status | translate }}</p>
+
+
+
     <div class="todo_btn">
       <button (click)="handle_delete(ele)">{{ 'delete' | translate }}</button>
       <button (click)="edit_popup(ele)">{{ 'edit' | translate }}</button>
