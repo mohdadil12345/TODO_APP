@@ -1,27 +1,75 @@
-# TodoApplication
+# Todo-App
+Basic Todo Application
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.1.
+## Screenshots
+## HomePage mobile view
+![Screenshot 1](./todo_application/src/assets/screenshots/homepage.png)
+## TodoPage fullscreen view
+![Screenshot 1](./todo_application/src/assets/screenshots/todofull.png)
+## add task mobile view
+![Screenshot 1](./todo_application/src/assets/screenshots/addmbile.png)
+## todo items mobile view
+![Screenshot 1](./todo_application/src/assets/screenshots/todotask.png)
+## edit full view
+![Screenshot 1](./todo_application/src/assets/screenshots/edit1.png)
+## edit mobile view
+![Screenshot 1](./todo_application/src/assets/screenshots/edittask.png)
+## todo in tamil lang
+![Screenshot 1](./todo_application/src/assets/screenshots/tamilalrt.png)
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Deployment
 
-## Code scaffolding
+Deployed Link: https://todo-application-pied-phi.vercel.app/
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+# Clone the repository
 
-## Build
+https://github.com/mohdadil12345/TODO_APP
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### User-side features
+- Add tasks in both online and offline mode.
+- View tasks in both online and offline mode.
+- Update tasks in both online and offline mode.
+- Delete tasks in both online and offline mode.
+- Search functionality in online mode.
+- Filter functionality in online mode.
+- when came back from offline to online ls data sync to server.
 
-## Running unit tests
+### Developer-side features
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Fully Responsive websites in mobile view.
+- Interactive Todo List
+- For designing used sass.
+- Local Storage Integration: 
+- Usage of Bootstrap for Home Page.
+- Angular toaster used for success message.
+-  translator implement in navbar for different language.
+-  ck editor used for title and description.
 
-## Running end-to-end tests
+## Tools and Technologies
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- Angular
+- Typescript
+- SASS
+- Javascript
+- Bootstrap
+- Html
+- Localstorage
+- Firebase
 
-## Further help
+## Dependencies
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Following are the major dependencies of the project:
+
+- angular core
+- angular forms module
+- Angular HTTP Client Module
+- CKEditor 5 Classic Build
+- ngx-translate/core
+- ngx-toastr
+
+## Installation and Setup
+
+1.Install Angular CLI : npm install -g @angular/cli
+2. Run the Application : ng serve --open
+3. Go to https://todo-application-pied-phi.vercel.app/  or view :  https://todo-application-pied-phi.vercel.app/
