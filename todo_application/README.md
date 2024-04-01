@@ -3,7 +3,7 @@ Basic Todo Application
 
 ## Screenshots
 ## HomePage mobile view
-![Screenshot 1](./todo_application/src/assets/screenshots/homepage.png)
+![Screenshot 1](src/assets/screenshots/homepage.png)
 ## TodoPage fullscreen view
 ![Screenshot 1](./todo_application/src/assets/screenshots/todofull.png)
 ## add task mobile view
