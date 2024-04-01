@@ -2,10 +2,9 @@
 Basic Todo Application
 
 ## Screenshots
-![Screenshot 1](./task_frontend/src/assets/home.png)
-![Screenshot 1](./task_frontend/src/assets/task.png)
-![Screenshot 1](./task_frontend/src/assets/login.png)
-![Screenshot 1](./task_frontend/src/assets/signup.png)
+![Screenshot 1](src\assets\screenshots\home-1.png)
+![Screenshot 1](./todo_application/src/assets/screenshots/home-1.png)
+
 
 ## Deployment
 
