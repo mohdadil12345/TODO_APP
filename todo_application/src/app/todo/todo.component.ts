@@ -178,14 +178,52 @@ export class TodoComponent {
     this.show_popup = true;
   }
 
-  Update_Todo(item: TodoTypes) {
-    const indexx = this.users.findIndex((ele) => ele.id == item.id);
-    if (indexx !== -1) {
-      this.users[indexx] = item;
-      localStorage.setItem('todo', JSON.stringify(this.users));
-    }
-    this.show_popup = false;
+  // Update_Todo(item: TodoTypes) {
+  //   const indexx = this.users.findIndex((ele) => ele.id == item.id);
+  //   if (indexx !== -1) {
+  //     this.users[indexx] = item;
+  //     // localStorage.setItem('todo_update', JSON.stringify(this.users));
+  //     localStorage.setItem('todo_update', JSON.stringify([item]));
+
+  //   }
+
+  //   this.show_popup = false;
+  // }
+
+
+
+
+  Update_Todo(item : TodoTypes) {
+  // const updatedStatus = item.status === 'Completed' ? 'Pending' : 'Completed';
+  // const updatedItem = { ...item, status: updatedStatus };
+  if (navigator.onLine) {
+
+    console.log("itemm", item)
+    this.http
+      .put(`${this.url}posts/${item._id}.json`, item)
+      .subscribe(() => {
+        this.fetchTodo();
+        this.toastr.success(
+          'Todo status updated successfully in online mode'
+        );
+      });
+  } else {
+    // Offline mode
+    const lsdata = JSON.parse(localStorage.getItem('todo') || '[]');
+    const updatedData = lsdata.map((ele: TodoTypes) => {
+      if (ele.id === item.id) {
+        ele = item;
+      }
+      return ele;
+    });
+    localStorage.setItem('todo', JSON.stringify(updatedData));
+    this.users = updatedData;
+    this.toastr.success('Status changed Successfull in offline mode');
   }
+}
+
+
+
 
   syn_with_server() {
     const lsdata = JSON.parse(localStorage.getItem('todo') || '[]');
@@ -203,6 +241,10 @@ export class TodoComponent {
       }
     );
   }
+
+
+
+
 
   toggleCKEditor(descriptionId: any): void {
     Object.keys(this.editorStates).forEach((key) => {

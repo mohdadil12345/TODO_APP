@@ -25,18 +25,25 @@
 
 
 
-  <button class="menu-btn" (click)="toggle()">{{displ_btn ?  '🎫' : '❌'}}</button>
+  <!-- <button class="menu-btn" (click)="toggle()">{{displ_btn ?   <img [src]="/assets/menu.png" alt=""> :   <img src="/assets/Close.png" alt="">}}</button> -->
+  <button class="menu-btn" (click)="toggle()">
+    <img [src]="displ_btn ? '/assets/menu.png' : '/assets/Close.png'" alt="">
+  </button>
+  
 
-  <!-- <mat-icon>
-    <span class="material-symbols-outlined">
-      close
-      </span>
-  </mat-icon> -->
+
+  <!-- <img src="/assets/Close.png" alt="">
+  <img src="/assets/menu.png" alt=""> -->
+
 
 
 
 
 </div>
+
+
+
+
 
 
 </div>
