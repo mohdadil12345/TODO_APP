@@ -4,17 +4,17 @@ Basic Todo Application
 ## Screenshots
 ## HomePage mobile view
 ![Screenshot 1](./todo_application/src/assets/screenshots/homepage.png)
-## HomePage mobile view
+## TodoPage fullscreen view
 ![Screenshot 1](./todo_application/src/assets/screenshots/todofull.png)
-## HomePage mobile view
+## form mobile view
 ![Screenshot 1](./todo_application/src/assets/screenshots/addmbile.png)
-## HomePage mobile view
+## todo data mobile view
 ![Screenshot 1](./todo_application/src/assets/screenshots/todotask.png)
-## HomePage mobile view
+## edit full view
 ![Screenshot 1](./todo_application/src/assets/screenshots/edit1.png)
-## HomePage mobile view
+## edit mobile view
 ![Screenshot 1](./todo_application/src/assets/screenshots/edittask.png)
-## HomePage mobile view
+## todo in tamil lang
 ![Screenshot 1](./todo_application/src/assets/screenshots/tamilalrt.png)
 
 
