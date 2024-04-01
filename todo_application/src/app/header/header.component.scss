@@ -7,7 +7,6 @@
 }
 
 .navbar {
-
   background-color: var(--bg6);
   // background-color: rgb(211, 211, 211);
   color: rgb(249, 249, 249);
@@ -37,14 +36,13 @@
   }
 
   .nav-menu a:hover {
-    background: linear-gradient(45deg, #1976D2, #1976D2);
+    background: linear-gradient(45deg, #1976d2, #1976d2);
   }
-    .logo_btn{
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-  
+  .logo_btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
 
   .logo_btn select {
     padding: 5px;
@@ -54,8 +52,6 @@
     border-radius: 4px;
     margin-right: 5px;
   }
-
-
 }
 
 .showbtn {
@@ -67,18 +63,13 @@
 }
 
 @media only screen and (max-width: 600px) {
-
-.navbar{
-  // justify-content: space-around;
-  padding: 10px;
-
-
-
-}
-.logo{
-  display: flex;
-
-}
+  .navbar {
+    // justify-content: space-around;
+    padding: 10px;
+  }
+  .logo {
+    display: flex;
+  }
 
   .nav-menu {
     position: fixed;
@@ -89,28 +80,18 @@
     padding: 10px;
     height: 100vh;
     transition: 0.7s right;
-    a{
+    z-index: 1000;
+    a {
       color: rgb(136, 16, 16);
       font-size: 26px;
       font-weight: bold;
     }
-
   }
 
-  .menu-btn{
+  .menu-btn {
     display: block;
-
     font-size: 30px;
-
     display: block;
-  }
-
-  .logo_btn {
-    
-
- 
-
-
   }
 
   .close {
@@ -118,7 +99,6 @@
   }
   .open {
     right: 0;
-    background-color:var(--bg5);
+    background-color: var(--bg5);
   }
 }
-

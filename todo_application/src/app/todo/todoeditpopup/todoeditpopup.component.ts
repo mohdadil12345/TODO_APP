@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { TodoTypes } from '../../todo-types';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-todoeditpopup',
@@ -24,7 +25,7 @@ export class TodoeditpopupComponent {
     
   @Output() editTodo: EventEmitter<TodoTypes> = new EventEmitter<TodoTypes>();
 
- constructor() {}
+ constructor(private toastr: ToastrService) {}
 
   ngOnInit(): void {
     // console.log("todo", this.todo);
@@ -34,7 +35,8 @@ export class TodoeditpopupComponent {
 
   handleEdit_form(): void {
       // console.log(this.edited_todo.title, this.edited_todo.description)
-    alert("item edited successfull")
+      this.toastr.success("Todo Edited Succcefully in offline mode ")
+
     this.editTodo.emit(this.edited_todo)
 
 

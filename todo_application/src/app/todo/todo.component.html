@@ -30,6 +30,9 @@
 
     <!-- <input [(ngModel)]="title" name="title" type="text" placeholder="title" required /> -->
     <input class="hide" [(ngModel)]="description" value="{{descriptionvalue}}" name="description" type="text" placeholder="description"/>
+
+
+    <p>Status : </p>
     <select [(ngModel)]="status" name="status" required>
       <option value="">Select Status</option>
       <option value="Completed">Completed</option>
@@ -78,7 +81,9 @@
 
     <div class="todo_btn">
       <button (click)="handle_delete(ele)">{{ 'delete' | translate }}</button>
+
       <button (click)="edit_popup(ele)">{{ 'edit' | translate }}</button>
+      
       <button (click)="shareable_link()">{{ 'share' | translate }}</button>
   
     </div>

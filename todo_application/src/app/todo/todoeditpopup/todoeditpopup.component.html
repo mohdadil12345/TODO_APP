@@ -4,14 +4,17 @@
   <h1 class="headingg">Edit Your Todo</h1>
 
 
-<div class="editor_container_main">
+<div id="editor" class="editor_container_main">
   <p>Title :</p>
 
   <ckeditor class="editor_container"
     [editor]="Editor"
     [(ngModel)]="titlevalue"
     (ngModelChange)="titleChange($event)"
-  ></ckeditor>
+  >
+</ckeditor>
+
+
 
   <p>Description :</p>
   <ckeditor class="editor_container"

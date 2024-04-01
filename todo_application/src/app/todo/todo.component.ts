@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { TranslateService } from '@ngx-translate/core';
 import { catchError, forkJoin } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -32,7 +33,7 @@ export class TodoComponent {
   descriptionvalue : string = ""
   titlevalue : string = ""
 
-  constructor(private http: HttpClient, private translate : TranslateService) {}
+  constructor(private http: HttpClient, private translate : TranslateService, private toastr: ToastrService) {}
 
   ngOnInit(): void {
     
@@ -64,17 +65,21 @@ export class TodoComponent {
         // Add new task
         this.http.post(`${this.url}posts.json`, obj).subscribe(() => {
           this.fetchTodo();
+    this.toastr.success("Todo added Succcefully in online mode ")
+
         });
       } else {
      
         this.http
-          .put(`${this.url}posts/${this.selected_todo.id}.json`, obj)
+          .put(`${this.url}posts/${this.selected_todo._id}.json`, obj)
           .subscribe(() => {
             this.fetchTodo();
           });
       }
     }
     
+
+
     
     else {
       
@@ -92,6 +97,9 @@ export class TodoComponent {
         // Add new task
         lsdata.push(obj);
         localStorage.setItem('todo', JSON.stringify(lsdata));
+    this.toastr.success("Todo added Succcefully in offline mode ")
+
+        
       }
       this.fetchTodo();
     }
@@ -130,7 +138,8 @@ export class TodoComponent {
         this.http.delete(`${this.url}posts/${elID}.json`).subscribe((data:any)=> {
           //  console.log(data)
            this.fetchTodo()
-           alert("todo deleted")
+           this.toastr.success("Todo deleted Succcefully in online mode ")
+
              
       })
      
@@ -139,19 +148,21 @@ export class TodoComponent {
       lsdata = lsdata.filter((ele: any) => ele.id !== item.id);
       localStorage.setItem('todo', JSON.stringify(lsdata));
       this.users = lsdata;
-      alert('Item deleted successfully in offline mode');
+      this.toastr.success("Todo deleted Succcefully in offline mode ")
+
     }
   }
   
   handle_status(item : any) {
+    const updatedStatus = item.status === 'Completed' ? 'Pending' : 'Completed';
+  const updatedItem = { ...item, status: updatedStatus };
     if (navigator.onLine) {
-     const  statusUpdated= this.users.map((ele: TodoTypes) => {
-        if (ele.id === item.id) {
-          ele.status = ele.status === 'Completed' ? 'Pending' : 'Completed';
-        }
-        return ele;
+      this.http.put(`${this.url}posts/${item._id}.json`, updatedItem).subscribe(() => {
+        this.fetchTodo();
+        this.toastr.success("Todo status updated successfully in online mode");
       });
-      this.users = statusUpdated
+    
+
     } else {
       // Offline mode
       const lsdata = JSON.parse(localStorage.getItem('todo') || '[]');
@@ -163,6 +174,8 @@ export class TodoComponent {
       });
       localStorage.setItem('todo', JSON.stringify(updatedData)); 
       this.users = updatedData; 
+    this.toastr.success("Status changed Successfull in offline mode")
+
     }
   }
   
@@ -173,9 +186,12 @@ export class TodoComponent {
 
 
 
+
+
   edit_popup(ele: TodoTypes) {
     this.selected_todo = ele;
     this.title = ele.title;
+    // this.titlevalue = ele.title;
     this.description = ele.description;
     this.status = ele.status;
     this.show_popup = true;
@@ -246,6 +262,8 @@ export class TodoComponent {
     const selectedLang = event.target.value;
 this.translate.use(selectedLang);
 localStorage.setItem("lang", selectedLang);
+this.toastr.success("Language changed successfully")
+
   }
 
 
