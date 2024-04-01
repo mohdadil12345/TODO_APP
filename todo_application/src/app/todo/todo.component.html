@@ -1,103 +1,117 @@
-
-
 <div class="main_container">
-    
+  <div class="taskadd">
+    <h1 class="heading">{{ "head" | translate }}</h1>
 
+    <div class="editor_container_main">
+      <strong>{{ "title" | translate }} : </strong>
+      <ckeditor
+        class="editor_container"
+        [editor]="Editor"
+        [(ngModel)]="titlevalue"
+        (ngModelChange)="titleChange($event)"
+      ></ckeditor>
 
+      <strong>{{ "description" | translate }} : </strong>
 
-<div class="taskadd">
-
-  <h1 class="heading">{{ 'head' | translate }}</h1>
-
-<div class="editor_container_main">
-
-  <strong>{{ 'title' | translate }} : </strong>
-  <ckeditor class="editor_container" [editor]="Editor" [(ngModel)]="titlevalue"  (ngModelChange) = "titleChange($event)"  ></ckeditor>
-  
-  <strong>{{ 'description' | translate }} : </strong>
-
-  <ckeditor  class="editor_container" [editor]="Editor" [(ngModel)]="descriptionvalue"  (ngModelChange) = "descriptionvalueChange($event)"  ></ckeditor>
-  
-
-</div>
-
-
-  <form class="form1" (ngSubmit)="handle_form(form_data)" #form_data="ngForm">
-    <input class="hide" [(ngModel)]="title" name="title" value="{{titlevalue}}" type="text" placeholder="title"/>
-
-
-
-
-    <!-- <input [(ngModel)]="title" name="title" type="text" placeholder="title" required /> -->
-    <input class="hide" [(ngModel)]="description" value="{{descriptionvalue}}" name="description" type="text" placeholder="description"/>
-
-
-    <strong>{{ 'status' | translate }} : </strong>
-    <select [(ngModel)]="status" name="status" required>
-      <option value="">Select Status</option>
-      <option value="Completed">Completed</option>
-      <option value="Pending">Pending</option>
-    </select>
-    <button class="addbtn" [disabled]="!form_data.form.valid" type="submit">  <img src="/assets/Add.png" alt="">    {{ 'add' | translate }}</button>
-  </form>
-
- 
-
-
-
-
-</div>
-
-<div class="todo_container">
-  <div class="filterr">
-    <input [(ngModel)]="serchfilter" class="search_input" (input)="handle_filter()" placeholder="search by title" type="text">
-
-
-<select [(ngModel)]="status_fil" (change)="filter_by_status()"  class="select_tag" name="status">
-  <option value="">Select By Status</option>
-  <option value="Completed">Completed</option>
-  <option value="Pending">Pending</option>
-
-</select>
-
-  </div>
-  <div class="todooos">
-    <div *ngFor="let ele of users" class="items">
-  
-      <strong>{{ 'title' | translate }}: </strong>
-      <p [innerHTML]="ele.title | translate"></p>
-
-  
-      <strong>{{ 'description' | translate }}</strong>
-      <p [innerHTML]="ele.description | translate"></p>
-    
-  
-  
-    <strong>{{ 'status' | translate }}</strong>
-
-    <p [style.color]="ele.status.toLowerCase() === 'completed' ? 'green' : 'red'" (click)="handle_status(ele)">{{ ele.status | translate }}</p>
-
-
-
-    <div class="todo_btn">
-      <button (click)="handle_delete(ele)">  <img src="/assets/Delete.png" alt="">  {{ 'delete' | translate }}</button>
-
-      <button (click)="edit_popup(ele)">  <img src="/assets/Edit.png" alt="">    {{ 'edit' | translate }}</button>
-      
-      <button (click)="shareable_link()">  <img src="/assets/Share.png" alt="">     {{ 'share' | translate }}</button>
-  
+      <ckeditor
+        class="editor_container"
+        [editor]="Editor"
+        [(ngModel)]="descriptionvalue"
+        (ngModelChange)="descriptionvalueChange($event)"
+      ></ckeditor>
     </div>
-  
-  
-  
+
+    <form class="form1" (ngSubmit)="handle_form(form_data)" #form_data="ngForm">
+      <input
+        class="hide"
+        [(ngModel)]="title"
+        name="title"
+        value="{{ titlevalue }}"
+        type="text"
+        placeholder="title"
+      />
+
+      <input
+        class="hide"
+        [(ngModel)]="description"
+        value="{{ descriptionvalue }}"
+        name="description"
+        type="text"
+        placeholder="description"
+      />
+
+      <strong>{{ "status" | translate }} : </strong>
+      <select [(ngModel)]="status" name="status" required>
+        <option value="">Select Status</option>
+        <option value="Completed">Completed</option>
+        <option value="Pending">Pending</option>
+      </select>
+      <button class="addbtn" [disabled]="!form_data.form.valid" type="submit">
+        <img src="/assets/Add.png" alt="" /> {{ "add" | translate }}
+      </button>
+    </form>
+  </div>
+
+  <div class="todo_container">
+    <div class="filterr">
+      <input
+        [(ngModel)]="serchfilter"
+        class="search_input"
+        (input)="handle_filter()"
+        placeholder="search by title"
+        type="text"
+      />
+
+      <select
+        [(ngModel)]="status_fil"
+        (change)="filter_by_status()"
+        class="select_tag"
+        name="status"
+      >
+        <option value="">Filter By Status</option>
+        <option value="Completed">Completed</option>
+        <option value="Pending">Pending</option>
+      </select>
+    </div>
+    <div class="todooos">
+      <div *ngFor="let ele of users" class="items">
+        <strong>{{ "title" | translate }}: </strong>
+        <p [innerHTML]="ele.title | translate"></p>
+
+        <strong>{{ "description" | translate }}</strong>
+        <p [innerHTML]="ele.description | translate"></p>
+
+        <strong>{{ "status" | translate }}</strong>
+
+        <p
+          [style.color]="
+            ele.status.toLowerCase() === 'completed' ? 'green' : 'red'
+          "
+          (click)="handle_status(ele)"
+        >
+          {{ ele.status | translate }}
+        </p>
+
+        <div class="todo_btn">
+          <button (click)="handle_delete(ele)">
+            <img src="/assets/Delete.png" alt="" /> {{ "delete" | translate }}
+          </button>
+
+          <button (click)="edit_popup(ele)">
+            <img src="/assets/Edit.png" alt="" /> {{ "edit" | translate }}
+          </button>
+
+          <button (click)="shareable_link()">
+            <img src="/assets/Share.png" alt="" /> {{ "share" | translate }}
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
-
-
-</div>
-
-
-
-<app-todoeditpopup *ngIf="show_popup"   [todo]="selected_todo" (editTodo)="Update_Todo($event)"></app-todoeditpopup>
+<app-todoeditpopup
+  *ngIf="show_popup"
+  [todo]="selected_todo"
+  (editTodo)="Update_Todo($event)"
+></app-todoeditpopup>

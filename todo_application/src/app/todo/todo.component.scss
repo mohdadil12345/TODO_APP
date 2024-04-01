@@ -18,7 +18,6 @@
 
 .taskadd {
   padding: 20px;
-  // box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -81,7 +80,6 @@
   .todooos {
     padding: 10px;
     display: grid;
-    // grid-template-columns: repeat(auto-fit, 300px);
     grid-template-columns: 50% 50%;
     gap: 10px;
     justify-content: center;
@@ -94,11 +92,9 @@
       padding: 20px;
       border-radius: 4px;
       justify-content: center;
-      // align-items: center;
       gap: 10px;
       background-color: var(--bg6);
       color: white;
-      //    max-height: 200px;
     }
     .todo_btn {
       grid-column-start: 1;
@@ -119,22 +115,21 @@
       align-items: center;
       gap: 5px;
       justify-content: center;
-      img{
+      img {
         height: 30px;
       }
     }
   }
 }
 
-
-.addbtn{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    img{
-        height: 30px;
-    }
+.addbtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  img {
+    height: 30px;
+  }
 }
 
 .status {
@@ -159,9 +154,6 @@
   .todo_container {
     .todooos {
       grid-template-columns: 100%;
-    }
-
-    .items {
     }
   }
 }

@@ -24,15 +24,4 @@ getData()  {
 }
 
 
-// //  delete
-
-// deletedd(id : any)  {
-//   return this.http.delete(`${this.url}/${id}`)
-// }
-
-
-// //  edit
-// editData(id: any, newData: any) {
-//   return this.http.put(`${this.url}/${id}`, newData);
-// }
 }

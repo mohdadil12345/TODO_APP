@@ -35,8 +35,6 @@ export class TodoeditpopupComponent {
 
   handleEdit_form(): void {
       // console.log(this.edited_todo.title, this.edited_todo.description)
-      this.toastr.success("Todo Edited Succcefully in offline mode ")
-
     this.editTodo.emit(this.edited_todo)
 
 

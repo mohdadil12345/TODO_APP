@@ -77,7 +77,7 @@ export class TodoComponent {
     } else {
       const lsdata = JSON.parse(localStorage.getItem('todo') || '[]');
       if (this.selected_todo) {
-        // Update existing task
+      
         const index = lsdata.findIndex(
           (item: any) => item.id === this.selected_todo.id
         );
@@ -102,7 +102,7 @@ export class TodoComponent {
 
   fetchTodo() {
     if (navigator.onLine) {
-      // Fetch tasks from the server
+   
       this.http
         .get<{ [key: string]: any }>(`${this.url}posts.json`)
         .subscribe((res) => {
@@ -115,7 +115,7 @@ export class TodoComponent {
           this.loading = false;
         });
     } else {
-      // Fetch tasks from local storage
+     
       const lsdata = JSON.parse(localStorage.getItem('todo') || '[]');
       this.users = lsdata;
     }
@@ -178,24 +178,10 @@ export class TodoComponent {
     this.show_popup = true;
   }
 
-  // Update_Todo(item: TodoTypes) {
-  //   const indexx = this.users.findIndex((ele) => ele.id == item.id);
-  //   if (indexx !== -1) {
-  //     this.users[indexx] = item;
-  //     // localStorage.setItem('todo_update', JSON.stringify(this.users));
-  //     localStorage.setItem('todo_update', JSON.stringify([item]));
-
-  //   }
-
-  //   this.show_popup = false;
-  // }
-
-
 
 
   Update_Todo(item : TodoTypes) {
-  // const updatedStatus = item.status === 'Completed' ? 'Pending' : 'Completed';
-  // const updatedItem = { ...item, status: updatedStatus };
+
   if (navigator.onLine) {
 
     console.log("itemm", item)
