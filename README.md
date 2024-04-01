@@ -1,8 +1,19 @@
 # Todo-App
-
 Basic Todo Application
 
-## Features
+## Screenshots
+![Screenshot 1](./task_frontend/src/assets/home.png)
+![Screenshot 1](./task_frontend/src/assets/task.png)
+![Screenshot 1](./task_frontend/src/assets/login.png)
+![Screenshot 1](./task_frontend/src/assets/signup.png)
+
+## Deployment
+
+Deployed Link: https://todo-application-pied-phi.vercel.app/
+
+# Clone the repository
+
+https://github.com/mohdadil12345/Task_Management_
 
 ### User-side features
 - Add tasks
@@ -32,8 +43,6 @@ Basic Todo Application
 - Html
 - Localstorage
 - Firebase
-
-
 
 ## Dependencies
 
