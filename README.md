@@ -50,6 +50,6 @@ Following are the major dependencies of the project:
 
 1.Install Angular CLI : npm install -g @angular/cli
 2. Run the Application : ng serve --open
-3. Go to http://localhost:3000
+3. Go to https://todo-application-pied-phi.vercel.app/
 
 
